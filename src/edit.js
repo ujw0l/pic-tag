@@ -50,11 +50,14 @@ export default function Edit({attributes,setAttributes}) {
 
 	useEffect( ()=>{
 
-		setAttributes({imgWd:imgRef.current.offsetWidth});
+	
+		if(0 < attributes.image.length){
+			setAttributes({imgWd:imgRef.current.offsetWidth});
 		setAttributes({imgHt:imgRef.current.offsetHeight});
+		}
+
 
        if(tagRef.current){
-
 		Array.from(imgRef.current.parentElement.querySelectorAll('.pic-tag-box')).map(x=>x.remove());
 		     detectObj(imgRef.current,setAttributes,attributes.score);
 	   }
